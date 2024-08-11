@@ -110,7 +110,10 @@ const Login = () => {
               type="text"
               placeholder="Email"
               value={email ? email : ""}
-              onChange={(e) => validateEmail(e.target.value)}
+              onChange={(e) => {
+                setLoginMessage(null);
+                validateEmail(e.target.value);
+              }}
               onBlur={handleEmail}
               className="w-full text-white pl-4 pt-5 pr-4 pb-3 bg-black/50 rounded-md border border-white/50 peer placeholder-transparent focus:outline outline-2 outline-offset-2 outline-white"
             />
