@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Netflix Clone API Project
+  description: Netflix API Express JS MongoDB Databases
+  version: 1.0.0
+paths:
+  /sign-up:
+    post:
+      summary: Create a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testing@gmail.com
+                password:
+                  type: string
+                  example: testing123
+      responses:
+        "201":
+          description: User created successfully
+        "409":
+          description: Email already exists
+
+  /my-token:
+    post:
+      summary: Get user's token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testing@gmail.com
+                password:
+                  type: string
+                  example: testing123
+      responses:
+        "200":
+          description: Success signing in token
+        "404":
+          description: User not found
+
+    delete:
+      summary: Delete user token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testing@gmail.com
+                token:
+                  type: string
+                  example: eyhnxcbnzbcjkshfheufuwdawdawd
+      responses:
+        "204":
+          description: Success delete user token
+        "401":
+          description: Error, Unauthorized
+
+  /my-movies/{email}/{token}:
+    get:
+      summary: Get user's favorite movies
+      parameters:
+        - in: path
+          name: email
+          required: true
+          schema:
+            type: string
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Success getting favorite movies
+        "401":
+          description: Error, Unauthorized
+
+  /my-movies:
+    post:
+      summary: Add favorite movies
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testing@gmail.com
+                token:
+                  type: string
+                  example: eyhnxcbnzbcjkshfheufuwdawdawd
+                data:
+                  type: object
+                  properties:
+                    id:
+                      type: integer
+                      example: 1
+                    title:
+                      type: string
+                      example: The Shawshank Redemption
+                    description:
+                      type: string
+                      example: Pulp Fiction is a 1994 American crime film directed by Qu
+      responses:
+        "201":
+          description: Success adding favorite list movies
+        "401":
+          description: Error, Unauthorized
+
+    delete:
+      summary: Delete a favorite movie
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: testing@gmail.com
+                token:
+                  type: string
+                  example: eyhnxcbnzbcjkshfheufuwdawdawd
+                movie_id:
+                  type: integer
+                  example: 1
+      responses:
+        "204":
+          description: Success delete a favorite movie
+        "401":
+          description: Error, Unauthorized
