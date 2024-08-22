@@ -49,10 +49,10 @@ const Recommendation = () => {
                       item.poster_path
                     }
                     alt=""
-                    className="w-full h-48 rounded-t-md"
+                    className="w-full max-h-72 object-cover rounded-t-md"
                   />
                   <button
-                    className="absolute top-10 left-1/2 -translate-x-1/2"
+                    className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
                     onClick={() => {
                       navigate("/watch/" + videoUrl);
                       isOpenModal(false);
@@ -63,10 +63,7 @@ const Recommendation = () => {
                   </button>
                 </div>
                 <div className="p-2">
-                  <div className="flex gap-2">
-                    <p>{item.release_date}</p>
-                    <p className="text-green-400/90">{item.vote_average}</p>
-                  </div>
+                  <p className="text-xl font-black text-white">{item.title}</p>
                   <p className="text-wrap pt-2 max-h-32 overflow-y-scroll">
                     {item.overview}
                   </p>

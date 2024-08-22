@@ -18,7 +18,6 @@ function Browse() {
       ) : (
         <>
           <Jumbotron />
-          <MovieList title={"Now Playing"} moviesType={"now_playing"} />
           <MovieList title={"Popular Movies"} moviesType={"popular"} />
           <MovieList title={"Top Related Movies"} moviesType={"top_rated"} />
           <MovieList title={"Upcoming Movies"} moviesType={"upcoming"} />

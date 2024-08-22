@@ -7,6 +7,7 @@ const CarouselLayout = ({ children }) => {
   const scroll = (offset) => {
     ref.current.scrollLeft += offset;
   };
+
   return (
     <div className="relative overflow-hidden">
       <div className="flex justify-between absolute left-0 w-full h-full">

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useAtom } from "jotai";
 import ReactPlayer from "react-player";
-import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { GoPlay, GoPlusCircle, GoChevronDown, GoTrash } from "react-icons/go";
+import { GoPlay, GoPlusCircle, GoChevronDown } from "react-icons/go";
+import { LuMinusCircle } from "react-icons/lu";
 
 import {
   emailStorageAtom,
@@ -103,13 +103,8 @@ const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
     <>
       {isSubmit && notifMessage && <Notification message={notifMessage} />}
       {isHover && idMovie === data.id && moviesType === movieTypeState ? (
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0, ease: "easeInOut" }}
-          className="relative shadow-md transition-all w-full"
-        >
-          <div className="hover:scale-110 transition-all">
+        <div className="w-full max-h-72 rounded-xl">
+          <div className=" transition-all">
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${videoUrl}`}
               playing={true}
@@ -120,7 +115,10 @@ const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
               height={"180px"}
             />
           </div>
-          <div className="h-auto p-4 bg-[#141414] flex flex-col gap-1.5 rounded-b-xl">
+          <div className="w-full h-32 p-4 rounded-b-xl bg-[#141414] flex flex-col gap-1.5 justify-center">
+            <section className="text-left">
+              <h2 className="font-black">{data.title}</h2>
+            </section>
             <section className="mt-1 flex justify-between">
               <div className="flex gap-2">
                 <button onClick={() => navigate("/watch/" + videoUrl)}>
@@ -135,7 +133,7 @@ const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
                   }
                 >
                   {isFavorited ? (
-                    <GoTrash size={32} />
+                    <LuMinusCircle size={32} />
                   ) : (
                     <GoPlusCircle size={32} />
                   )}
@@ -150,16 +148,12 @@ const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
                 </button>
               </div>
             </section>
-            <section className="text-left">
-              <h2 className="font-semibold">{data.title}</h2>
-              <p className="text-green-400">Popularity: {data.popularity}</p>
-            </section>
           </div>
-        </motion.div>
+        </div>
       ) : (
         <img
           src={`${import.meta.env.VITE_BASE_URL_TMDB_IMAGE}${data.poster_path}`}
-          className="w-full max-h-72 cursor-pointer object-cover rounded-xl"
+          className="w-full max-h-72 mb-5 object-cover cursor-pointer rounded-xl"
           onMouseEnter={() => {
             setIsHover(true);
             setIdMovie(data.id);

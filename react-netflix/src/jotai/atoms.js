@@ -7,6 +7,7 @@ export const languageStorageAtom = atomWithStorage("language", "id");
 
 export const emailAtom = atom(null);
 export const idMovieAtom = atom(null);
+export const currentIndexAtom = atom(0);
 export const isEmailValid = atom(false);
 export const isFetchingAtom = atom(false);
 export const isOpenModalAtom = atom(false);
