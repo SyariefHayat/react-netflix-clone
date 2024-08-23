@@ -1,12 +1,13 @@
+import React from "react";
 import { useAtom } from "jotai";
 
+import Modal from "@modules/BrowsePage/Modal";
 import { searchMoviesAtom } from "@/jotai/atoms";
 import BrowseLayout from "@layouts/BrowseLayout";
+import Footer from "@modules/LandingPage/Footer";
 import Jumbotron from "@modules/BrowsePage/Jumbotron";
 import MovieList from "@modules/BrowsePage/MovieList";
-import Modal from "@modules/BrowsePage/Modal";
 import SearchMovies from "@modules/BrowsePage/SearchMovies";
-import Footer from "@/components/Modules/LandingPage/Footer";
 
 function Browse() {
   const [searchQuery] = useAtom(searchMoviesAtom);

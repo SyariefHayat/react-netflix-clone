@@ -1,51 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
-import ReactPlayer from "react-player";
+import { GoPlay } from "react-icons/go";
 import { MdClose } from "react-icons/md";
-import { useNavigate } from "react-router-dom";
-import { GoPlay, GoPlusCircle } from "react-icons/go";
 
-import { getVideoUrl } from "@/services/tmdb/getVideoUrl";
+import { formatDate } from "@/utils/formatDate";
+import { genreMapping } from "@/utils/genreMapping";
 import { idMovieAtom, isOpenModalAtom } from "@/jotai/atoms";
 import { getMovieDetail } from "@/services/tmdb/getMovieDetail";
 import Recommendation from "@modules/BrowsePage/Modal/Recommendation";
 
 const Modal = () => {
-  const [videoUrl, setVideoUrl] = useState(null);
   const [movieDetail, setMovieDetail] = useState([]);
 
   const [idMovie] = useAtom(idMovieAtom);
   const [isOpenModal, setIsOpenModal] = useAtom(isOpenModalAtom);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (idMovie && isOpenModal) {
       getMovieDetail({ movie_id: idMovie }).then((result) =>
         setMovieDetail(result)
       );
-      getVideoUrl({ movie_id: idMovie }).then((result) => setVideoUrl(result));
     }
   }, [idMovie, isOpenModal]);
-
-  const genreMapping = (genres) => {
-    if (genres) {
-      let result = "";
-      genres.map((genre, index) => {
-        if (index === genres.length - 1) {
-          result += genre.name;
-        } else {
-          result += genre.name + ", ";
-        }
-      });
-      return result;
-    }
-  };
-
-  function formatDate(date) {
-    const options = { year: "numeric", month: "long", day: "numeric" };
-    return new Date(date).toLocaleDateString("en-US", options);
-  }
 
   return (
     <dialog className={`modal ${isOpenModal ? "modal-open" : ""}`}>
@@ -88,12 +64,12 @@ const Modal = () => {
                 <p className="text-green-400/90">
                   {movieDetail?.runtime} Minutes
                 </p>
-                <p>{movieDetail.vote_average}</p>
+                <p>{movieDetail?.vote_average}</p>
               </div>
               <p className="w-full">{movieDetail?.overview}</p>
             </div>
             <div className="flex flex-col gap-2 my-4">
-              <p>Genre: {genreMapping(movieDetail?.genres)}</p>
+              <p>Genre: {genreMapping(movieDetail?.genres, ", ")}</p>
               <p>Popularity: {movieDetail?.popularity}</p>
             </div>
             <div className="flex gap-2">

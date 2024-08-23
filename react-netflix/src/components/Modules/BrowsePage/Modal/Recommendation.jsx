@@ -25,6 +25,12 @@ const Recommendation = () => {
     }
   }, [idMovie]);
 
+  const handlePlayBtnClick = () => {
+    navigate("/watch/" + videoUrl);
+    isOpenModal(false);
+    setIdMovie(null);
+  };
+
   return (
     <div className="px-4 py-2">
       <h2 className="text-2xl font-bold mt-4">Movies Recommendation</h2>
@@ -53,11 +59,7 @@ const Recommendation = () => {
                   />
                   <button
                     className="absolute top-1/2 -translate-y-1/2 left-1/2 -translate-x-1/2"
-                    onClick={() => {
-                      navigate("/watch/" + videoUrl);
-                      isOpenModal(false);
-                      setIdMovie(null);
-                    }}
+                    onClick={handlePlayBtnClick}
                   >
                     <GoPlay size={44} />
                   </button>

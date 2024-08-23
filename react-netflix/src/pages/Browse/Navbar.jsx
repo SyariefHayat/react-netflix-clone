@@ -1,31 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import EachUtils from "@/utils/EachUtils";
 import { LIST_NAVBAR } from "@/constants/listNavbar";
 import AccountMenu from "@modules/BrowsePage/AccountMenu";
+import useScrollPosition from "@/hooks/useScrollPosition";
 import InputSearchMovies from "@modules/BrowsePage/InputSearchMovies";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
+  const isScrolled = useScrollPosition();
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-
-      if (offset > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    return () => {
-      window.addEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   return (
     <header className="relative">

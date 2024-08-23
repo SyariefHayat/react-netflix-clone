@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useAtom } from "jotai";
-import { AnimatePresence, motion } from "framer-motion";
 import { GoSearch } from "react-icons/go";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { searchMoviesAtom } from "@/jotai/atoms";
 
@@ -16,6 +16,7 @@ const InputSearchMovies = () => {
       setSearchMovies(null);
     }
   };
+
   return (
     <div className="relative">
       <motion.div
