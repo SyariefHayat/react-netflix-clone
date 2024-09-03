@@ -36,7 +36,12 @@ const Login = () => {
   const [languageStorage] = useAtom(languageStorageAtom);
 
   const [email] = useAtom(emailAtom);
+  
   const navigate = useNavigate();
+
+  const goToFormPage = () => {
+    navigate("/", { state: { focusInput: true } });
+  };
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -217,7 +222,7 @@ const Login = () => {
                 ? "New to Netflix?"
                 : "Baru di Netflix?"}
               <span
-                onClick={() => navigate("/register")}
+                onClick={goToFormPage}
                 className="text-white hover:underline cursor-pointer ml-2"
               >
                 {languageStorage === "en" ? "Sign up now." : "Daftar sekarang."}

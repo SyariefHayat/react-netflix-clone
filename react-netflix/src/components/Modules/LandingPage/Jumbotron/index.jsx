@@ -37,7 +37,7 @@ const Jumbotron = () => {
               {item.title}
             </h1>
             <p className="text-white text-2xl mb-3">{item.desc}</p>
-            <InputMembership />
+            <InputMembership instanceId={1} />
           </div>
         )}
       />
