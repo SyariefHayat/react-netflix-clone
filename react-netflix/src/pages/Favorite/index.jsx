@@ -49,13 +49,13 @@ const Favorite = () => {
         <h3 className="text-white font-bold text-2xl">My Favorite Movies</h3>
         {movieList.length === 0 && <p>Belum ada favorite movies saat ini</p>}
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4 p-8">
+      <div className="grid grid-cols-6 gap-4 p-8">
         <EachUtils
           of={movieList}
           render={(item, index) => (
             <div
               key={index}
-              className="h-72"
+              className="max-h-72 cursor-pointer object-cover rounded-xl mb-5"
               onMouseLeave={() => {
                 setIsHover(false);
                 setIdMovie(null);
