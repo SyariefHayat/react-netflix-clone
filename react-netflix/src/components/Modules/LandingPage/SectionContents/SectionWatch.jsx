@@ -21,7 +21,7 @@ const SectionWatch = () => {
           </div>
         )}
       />
-      <div className="relative max-w-xl mx-auto">
+      <div className="relative max-w-xl mx-auto px-5">
         <img
           src={WATCH_DEVICE_IMAGE}
           alt="computer-image"

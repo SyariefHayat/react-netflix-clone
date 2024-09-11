@@ -13,7 +13,7 @@ const SectionProfile = () => {
   return (
     <SectionLayout>
       <div>
-        <img src={PROFILE_KIDS_IMAGE} alt="kids-image" />
+        <img src={PROFILE_KIDS_IMAGE} alt="kids-image" className="px-5" />
       </div>
       <EachUtils
         of={languageStorage === "en" ? LIST_CONTENT_4_EN : LIST_CONTENT_4_ID}

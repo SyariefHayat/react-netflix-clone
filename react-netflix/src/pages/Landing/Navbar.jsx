@@ -11,12 +11,12 @@ function Navbar() {
 
   return (
     <header className="absolute w-full z-20">
-      <nav className="flex flex-wrap justify-between items-center pl-36 pr-[160px]">
+      <nav className="flex flex-wrap justify-between items-center pt-5 px-5 lg:pl-36 lg:pr-[160px]">
         <div>
           <img
             src="/netflix-logo-icon.png"
             alt="Logo Netflix"
-            className="w-[175px] h-[90px]"
+            className="w-32 lg:w-[175px] lg:h-[90px]"
           />
         </div>
         <div className="flex flex-wrap items-center gap-6">

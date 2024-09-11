@@ -17,11 +17,11 @@ const SectionFAQ = () => {
   const [openContentIndex, setOpenContentIndex] = useState(null);
 
   return (
-    <div className="w-full p-16 bg-black border-t-8 border-t-stone-900">
+    <div className="w-full px-5 md:px-10 py-12 bg-black border-t-8 border-t-stone-900">
       <h2 className="text-5xl mb-2 font-black text-white text-center">
         {languageStorage === "en" ? FAQ_TITLE_EN : FAQ_TITLE_ID}
       </h2>
-      <ul className="w-5/6 mx-auto flex flex-col gap-2 py-8">
+      <ul className="w-full lg:w-5/6 mx-auto flex flex-col gap-2 py-8">
         <EachUtils
           of={languageStorage === "en" ? LIST_FAQ_EN : LIST_FAQ_ID}
           render={(item, index) => (
@@ -78,13 +78,13 @@ const SectionFAQ = () => {
           )}
         />
       </ul>
-      <div className="max-w-5xl mx-auto mt-4 text-center">
+      <div className="max-w-5xl mx-auto mt-4 text-center px-2">
         <div
           className={`${
-            languageStorage === "en" ? "w-[65%]" : "w-[78%]"
+            languageStorage === "en" ? "w-full lg:w-[65%]" : "w-full lg:w-[78%]"
           } mx-auto`}
         >
-          <InputMembership />
+          <InputMembership instanceId={2} />
         </div>
       </div>
     </div>

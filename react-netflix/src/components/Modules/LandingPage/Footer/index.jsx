@@ -11,7 +11,7 @@ const Footer = ({ style }) => {
 
   return (
     <footer
-      className={`w-full text-white/80 bg-black border-t-8 border-stone-900 px-32 ${
+      className={`w-full text-white/80 bg-black border-t-8 border-stone-900 px-10 sm:px-24 lg:px-32 ${
         style ? style : "py-16"
       }`}
     >
@@ -23,7 +23,7 @@ const Footer = ({ style }) => {
           007-803-321-2130
         </a>
       </div>
-      <ul className="grid sm:grid-cols-4 gap-4 py-8">
+      <ul className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-8">
         <EachUtils
           of={languageStorage === "en" ? LIST_FOOTER_EN : LIST_FOOTER_ID}
           render={(item, index) => (

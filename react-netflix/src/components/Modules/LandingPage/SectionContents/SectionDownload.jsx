@@ -23,7 +23,7 @@ const SectionDownload = () => {
           alt="phone-image"
           className="relative"
         />
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black border border-white/50 flex justify-center items-center rounded-xl py-2 w-[60%] gap-4">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-black border border-white/50 flex justify-center items-center rounded-xl py-2 w-[70%] sm:w-[90%] md:w-[70%] gap-4">
           <img
             src={DOWNLOAD_COVER_IMAGE}
             alt="cover-image"
@@ -35,7 +35,7 @@ const SectionDownload = () => {
               {languageStorage === "en" ? "Downloading..." : "Men-donwload..."}
             </p>
           </div>
-          <div className="w-16 h-16">
+          <div className="w-12 h-12 lg:w-20 lg:h-20">
             <Lottie animationData={downloadAnimation} loop={true} />
           </div>
         </div>
@@ -43,8 +43,8 @@ const SectionDownload = () => {
       <EachUtils
         of={languageStorage === "en" ? LIST_CONTENT_2_EN : LIST_CONTENT_2_ID}
         render={(item, index) => (
-          <div key={index}>
-            <h2 className="text-5xl font-black">{item.title}</h2>
+          <div key={index} className="px-8">
+            <h2 className="text-4xl md:text-5xl font-black">{item.title}</h2>
             <p className="text-2xl mt-4">{item.desc}</p>
           </div>
         )}

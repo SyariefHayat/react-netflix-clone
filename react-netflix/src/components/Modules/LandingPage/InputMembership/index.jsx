@@ -44,9 +44,19 @@ const InputMembership = ({ instanceId }) => {
               />
               <label
                 className={`absolute top-0 left-0 ${
-                  languageStorage === "en" ? "pl-[60px]" : "pl-[120px]"
-                } peer-placeholder-shown:top-[30px] peer-focus:top-5 top-5 peer-focus:text-sm transition-all ${
-                  email ? "text-sm" : "text-lg"
+                  instanceId === 1
+                    ? `peer-placeholder-shown:top-[33px] peer-focus:top-5 ${
+                        languageStorage === "en"
+                          ? "md:pl-[60px]"
+                          : "md:pl-[70px]"
+                      }`
+                    : `peer-placeholder-shown:top-[33px] peer-focus:top-5 md:pl-[65px] ${
+                        languageStorage === "en"
+                          ? "lg:pl-[60px]"
+                          : "lg:pl-[70px]"
+                      }`
+                } pl-[40px] sm:pl-[60px] top-5 peer-focus:text-sm transition-all ${
+                  email ? "text-sm" : "text-md"
                 }`}
               >
                 {item.labelInput}
@@ -55,16 +65,16 @@ const InputMembership = ({ instanceId }) => {
                 isArrowIcon={true}
                 text={item.buttonSubmit}
                 onClick={(e) => handleEmail(e, "/register")}
-                styles={`flex ${
-                  languageStorage === "en" ? "w-[30%]" : "w-[18%]"
-                } py-[13px] flex justify-center items-center gap-2 text-2xl`}
+                styles={`flex w-[30%] ${
+                  languageStorage === "en" ? "text-xs" : "text-2xl"
+                } ${
+                  instanceId === 1
+                    ? "sm:text-2xl py-[13px]"
+                    : "sm:text-xl py-[15px]"
+                }  flex justify-center items-center gap-2`}
               />
               {emailMessage && (
-                <div
-                  className={`absolute flex justify-center items-center gap-1 -bottom-4 ${
-                    languageStorage === "en" ? "left-11" : "left-24"
-                  }`}
-                >
+                <div className="absolute flex justify-center items-center gap-1 -bottom-4 left-5 sm:left-10 md:left-14">
                   <IoIosCloseCircleOutline size={23} className="text-red-600" />
                   <p className="text-red-600 text-sm">{emailMessage}</p>
                 </div>

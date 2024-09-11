@@ -9,7 +9,7 @@ const OptionLanguage = () => {
   const [languageStorage, setLanguageStorage] = useAtom(languageStorageAtom);
 
   return (
-    <div className="relative bg-[#1A1510] text-white rounded border border-gray-400 w-[200px]">
+    <div className="relative bg-[#1A1510] text-white rounded border border-gray-400 w-[70px] sm:w-[200px]">
       <div className="absolute top-[8px] left-3 z-[21]">
         <svg
           width="16"
@@ -31,7 +31,7 @@ const OptionLanguage = () => {
         </svg>
       </div>
       <select
-        className="w-full relative z-[22] bg-transparent py-1 px-9 rounded focus:outline outline-2 outline-offset-[3px] outline-white appearance-none"
+        className="w-full relative z-[22] bg-transparent py-1 px-1 rounded focus:outline outline-2 outline-offset-[3px] outline-white appearance-none text-transparent sm:text-white sm:px-9"
         value={languageStorage}
         onChange={(e) => setLanguageStorage(e.target.value)}
       >

@@ -2,13 +2,8 @@ import { useState } from "react";
 import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 
-import {
-  emailAtom,
-  emailStorageAtom,
-  isEmailValid,
-  languageStorageAtom,
-} from "@/jotai/atoms";
 import { emailValidation } from "@/utils/emailValidation";
+import { emailAtom, isEmailValid, languageStorageAtom } from "@/jotai/atoms";
 
 const useEmailValidation = () => {
   const [isMessage, setIsMessage] = useState(false);

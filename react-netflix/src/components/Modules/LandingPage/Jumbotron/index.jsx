@@ -31,7 +31,9 @@ const Jumbotron = () => {
         render={(item, index) => (
           <div
             key={index}
-            className="absolute w-full flex flex-col justify-center items-center mt-[265px] gap-4 text-center px-4 z-20"
+            className={`absolute w-full flex flex-col justify-center items-center ${
+              languageStorage === "en" ? "mt-[130px]" : "mt-[100px]"
+            } sm:mt-[180px] lg:mt-[200px] gap-4 text-center px-4 z-20`}
           >
             <h1 className="font-black text-white text-5xl leading-snug">
               {item.title}
