@@ -6,7 +6,7 @@ const Navbar = () => {
 
   return (
     <header className="absolute w-full z-20">
-      <nav className="pl-36">
+      <nav className="pl-12 sm:pl-36">
         <div>
           <img
             src="/netflix-logo-icon.png"

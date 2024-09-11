@@ -91,7 +91,7 @@ const Login = () => {
         alt="jumbotron-bg"
         className="image-full w-full h-[100vh] object-cover opacity-70"
       />
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 z-10 bg-black/80 px-16 pt-10 pb-16 rounded-xl max-w-md w-full">
+      <div className="absolute top-20 md:top-1/2 md:-translate-y-1/2 lg:top-20 lg:-translate-y-0 left-1/2 -translate-x-1/2 z-10 bg-black/80 px-16 pt-10 pb-16 rounded-xl max-w-md w-full">
         <form action="" className="flex flex-col gap-4">
           <h3 className="text-white text-3xl font-bold mb-5">
             {languageStorage === "en" ? "Sign In" : "Masuk"}
