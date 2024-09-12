@@ -90,7 +90,7 @@ const MovieDetail = () => {
       <motion.div
         key={`btn-container-${currentIndex}`}
         exit={{ opacity: 0, translateY: -20 }}
-        className="flex gap-4 mt-4"
+        className="flex flex-wrap gap-4 mt-4"
       >
         <motion.button
           key={`btn-play-${currentIndex}`}

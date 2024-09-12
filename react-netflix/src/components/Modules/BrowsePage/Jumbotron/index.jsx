@@ -53,10 +53,10 @@ const Jumbotron = () => {
         position={"top-0"}
         color={"bg-[#00000080]"}
       />
-      <div className="absolute top-1/2 -translate-y-1/2 left-4 p-8 max-w-xl z-20">
+      <div className="absolute top-1/2 -translate-y-1/2 xs:top-14 xs:-translate-y-0 w-full md:top-[20%] xl:top-1/2 xl:-translate-y-1/2 xl:left-4 py-8 px-4 md:px-6 sm:max-w-xl md:max-w-3xl lg:max-w-xl xl:max-w-xl z-20">
         <MovieDetail />
       </div>
-      <div className="absolute top-1/2 -translate-y-1/2 right-4 max-w-xl h-96 z-20 flex flex-col justify-center gap-2">
+      <div className="absolute hidden bottom-5 md:bottom-28 lg:bottom-[20%] xl:top-1/2 xl:-translate-y-1/2 xl:right-4 w-full px-5 sm:max-w-xl md:max-w-3xl lg:max-w-5xl xl:max-w-xl h-96 z-20 xs:flex flex-col justify-center gap-2">
         <h3 className="text-3xl text-white font-semibold mb-2">Now Playing</h3>
         <div className="relative overflow-hidden">
           <div className="flex justify-between absolute left-0 w-full h-full">
@@ -77,7 +77,10 @@ const Jumbotron = () => {
             <EachUtils
               of={nowPlayingMovies}
               render={(item, index) => (
-                <div key={index} className="w-[31%] max-h-72 carousel-item">
+                <div
+                  key={index}
+                  className="w-[48%] sm:w-[31%] md:w-[27%] lg:w-[31%] max-h-72 carousel-item"
+                >
                   <img
                     src={`${import.meta.env.VITE_BASE_URL_TMDB_IMAGE}${
                       item.poster_path

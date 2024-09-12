@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { MdMenu, MdClose } from "react-icons/md";
 
 import EachUtils from "@/utils/EachUtils";
 import { LIST_NAVBAR } from "@/constants/listNavbar";
@@ -8,6 +9,8 @@ import useScrollPosition from "@/hooks/useScrollPosition";
 import InputSearchMovies from "@modules/BrowsePage/InputSearchMovies";
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const isScrolled = useScrollPosition();
   const navigate = useNavigate();
 
@@ -16,17 +19,46 @@ const Navbar = () => {
       <nav
         className={`${
           isScrolled ? "bg-[#141414]" : "bg-transparent"
-        } fixed text-white top-0 left-0 px-8 py-2 w-full transition-all duration-300 z-30`}
+        } fixed text-white top-0 left-0 px-2 md:px-4 py-2 w-full transition-all duration-300 z-30`}
       >
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-4">
+          <div className="flex items-center md:gap-4">
+            <div className="md:hidden">
+              {isOpen ? (
+                <>
+                  <MdClose
+                    size={40}
+                    onClick={() => setIsOpen((prev) => !prev)}
+                  />
+                  <div className="absolute top-16 right-0 w-full h-full bg-[#141414]">
+                    <ul className="flex flex-row justify-center items-center gap-4">
+                      <EachUtils
+                        of={LIST_NAVBAR}
+                        render={(item, index) => (
+                          <li key={index} className="text-xl py-5">
+                            <a href={item.url}>{item.title}</a>
+                          </li>
+                        )}
+                      />
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <MdMenu
+                    size={40}
+                    onClick={() => setIsOpen((prev) => !prev)}
+                  />
+                </>
+              )}
+            </div>
             <img
               src="/netflix-logo-icon.png"
               alt="logo netflix"
-              className="w-[120px] ml-2 cursor-pointer hover:scale-105 transition-all"
+              className="w-[120px] cursor-pointer hover:scale-105 transition-all"
               onClick={() => navigate("/browse")}
             />
-            <ul className="sm:flex hidden items-center gap-4">
+            <ul className="md:flex hidden items-center gap-4">
               <EachUtils
                 of={LIST_NAVBAR}
                 render={(item, index) => (

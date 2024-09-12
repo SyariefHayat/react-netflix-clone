@@ -25,7 +25,7 @@ const Modal = () => {
 
   return (
     <dialog className={`modal ${isOpenModal ? "modal-open" : ""}`}>
-      <div className="modal-box w-full max-w-screen-md p-0">
+      <div className="modal-box w-[90%] lg:w-full max-w-screen-md p-0">
         <div className="relative">
           <div className="h-[250px] w-full">
             <img
@@ -40,7 +40,7 @@ const Modal = () => {
                 src={`${import.meta.env.VITE_BASE_URL_TMDB_IMAGE}${
                   movieDetail.poster_path
                 }`}
-                className="h-full object-cover rounded-xl"
+                className="hidden sm:block h-full object-cover rounded-xl"
                 alt="poster-image"
               />
             </div>
@@ -53,7 +53,7 @@ const Modal = () => {
             </button>
           </div>
         </div>
-        <div className="flex gap-1 pl-80 pr-4 py-2 text-white ">
+        <div className="flex gap-1 pl-4 sm:pl-80 sm:pr-4 py-2 text-white ">
           <div className="py-2">
             <h2 className="text-4xl font-black text-white">
               {movieDetail?.title}

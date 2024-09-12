@@ -34,7 +34,7 @@ const Recommendation = () => {
   return (
     <div className="px-4 py-2">
       <h2 className="text-2xl font-bold mt-4">Movies Recommendation</h2>
-      <div className="grid grid-cols-3 gap-2 mt-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-4">
         {moviesRecommendation && (
           <EachUtils
             of={moviesRecommendation}
