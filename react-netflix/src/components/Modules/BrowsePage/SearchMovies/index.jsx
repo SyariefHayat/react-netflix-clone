@@ -30,7 +30,7 @@ const SearchMovies = () => {
   }, [searchQuery]);
 
   return (
-    <div className="grid grid-cols-4 p-8 mt-10 gap-4">
+    <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 p-8 mt-10 gap-4">
       {movieList && (
         <EachUtils
           of={movieList}
