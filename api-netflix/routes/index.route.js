@@ -5,6 +5,9 @@ const userController = require("../controllers/index.controller");
 router.get("/", (req, res) => {
   res.send("Server is running!");
 });
+router.get("/favicon.ico", (req, res) => res.status(204).end());
+
+
 router.get(
   "/my-movies/:email/:token",
   checkToken,
