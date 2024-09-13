@@ -9,7 +9,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "frontend/dist/index.html"
+      "dest": "main.jsx"
     }
   ]
 }
