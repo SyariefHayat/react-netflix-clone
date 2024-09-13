@@ -2,18 +2,23 @@ import React, { useEffect, useState } from "react";
 import { useAtom } from "jotai";
 import { GoPlay } from "react-icons/go";
 import { MdClose } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 import { formatDate } from "@/utils/formatDate";
 import { genreMapping } from "@/utils/genreMapping";
 import { idMovieAtom, isOpenModalAtom } from "@/jotai/atoms";
 import { getMovieDetail } from "@/services/tmdb/getMovieDetail";
 import Recommendation from "@modules/BrowsePage/Modal/Recommendation";
+import useMovieDetail from "@/hooks/useMovieDetail";
 
 const Modal = () => {
   const [movieDetail, setMovieDetail] = useState([]);
 
   const [idMovie] = useAtom(idMovieAtom);
+  const { videoUrl } = useMovieDetail(idMovie);
   const [isOpenModal, setIsOpenModal] = useAtom(isOpenModalAtom);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (idMovie && isOpenModal) {
@@ -22,6 +27,10 @@ const Modal = () => {
       );
     }
   }, [idMovie, isOpenModal]);
+
+  const handlePlayBtnClick = () => {
+    navigate(`/watch/${videoUrl}`);
+  };
 
   return (
     <dialog className={`modal ${isOpenModal ? "modal-open" : ""}`}>
@@ -73,7 +82,10 @@ const Modal = () => {
               <p>Popularity: {movieDetail?.popularity}</p>
             </div>
             <div className="flex gap-2">
-              <button className="bg-red-600 py-2 px-8 rounded-md text-xl font-bold text-white flex items-center gap-1">
+              <button
+                className="bg-red-600 py-2 px-8 rounded-md text-xl font-bold text-white flex items-center gap-1"
+                onClick={handlePlayBtnClick}
+              >
                 <GoPlay />
                 Play
               </button>

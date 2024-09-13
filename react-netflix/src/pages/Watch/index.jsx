@@ -4,16 +4,24 @@ import { GoChevronLeft } from "react-icons/go";
 import { useNavigate, useParams } from "react-router-dom";
 
 import BrowseLayout from "@layouts/BrowseLayout";
+import { isOpenModalAtom } from "@/jotai/atoms";
+import { useAtom } from "jotai";
 
 const Watch = () => {
   const { id } = useParams();
+  const [, setIsOpenModal] = useAtom(isOpenModalAtom);
   const navigate = useNavigate();
+
+  const handleLeftClick = () => {
+    setIsOpenModal(false);
+    navigate("/browse");
+  };
 
   return (
     <BrowseLayout>
       <div
         className="absolute top-20 left-6 hover:text-white transition-all cursor-pointer"
-        onClick={() => navigate("/browse")}
+        onClick={handleLeftClick}
       >
         <GoChevronLeft size={44} />
       </div>
