@@ -2,6 +2,9 @@ const router = require("express").Router();
 const { checkToken } = require("../utils/auth");
 const userController = require("../controllers/index.controller");
 
+router.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 router.get(
   "/my-movies/:email/:token",
   checkToken,
