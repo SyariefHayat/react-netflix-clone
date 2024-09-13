@@ -4,8 +4,10 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 const routes = require("./routes/index.route");
 const swaggerUi = require("swagger-ui-express");
+const path = require("path");
 const YAML = require("yamljs");
-const swaggerDocs = YAML.load("./swagger.yaml");
+
+const swaggerDocs = YAML.load(path.join(__dirname, "swagger.yaml"));
 
 const { API_PORT, MONGO_URL } = process.env;
 
