@@ -37,7 +37,7 @@ const MovieList = ({ title, moviesType }) => {
           of={movieList}
           render={(item, index) => (
             <div
-              className="carousel-item w-[63%] xs:w-[55%] md:w-[27%] lg:w-[20%] xl:w-1/6 px-0 sm:px-1"
+              className="carousel-item w-[63%] md:w-[27%] lg:w-[20%] xl:w-1/6 px-0 sm:px-1"
               key={index}
               onMouseLeave={() => {
                 setIsHover(false);

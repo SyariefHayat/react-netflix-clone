@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { auth } from "@/services/firebase/firebase";
 import { emailStorageAtom, tokenStorageAtom } from "@/jotai/atoms";
 import { apiInstanceExpress } from "@/services/express/apiInstance";
+import { getInitial } from "@/utils/getInitial";
 
 const AccountMenu = () => {
   const [tokenStorage, setTokenStorage] = useAtom(tokenStorageAtom);
@@ -34,12 +35,12 @@ const AccountMenu = () => {
 
   return (
     <div className="flex dropdown dropdown-hover dropdown-end cursor-pointer">
-      <div className="avatar" tabIndex={0}>
-        <div className="w-10 rounded">
-          <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+      <div tabIndex={0}>
+        <div className="w-8 h-8 flex items-center justify-center rounded-full text-slate-950 text-2xl font-medium bg-slate-100">
+          {getInitial(emailStorage)}
         </div>
       </div>
-      <div className="dropdown-content absolute top-10 z-30 bg-black text-stone-200 py-2 flex flex-col gap-4 border border-stone-300/80 rounded-xl px-4">
+      <div className="dropdown-content absolute top-12 z-30 bg-black text-stone-200 py-2 flex flex-col gap-4 border border-stone-300/80 rounded-xl px-4">
         <p className="text-sm italic">{emailStorage}</p>
         <button onClick={handleSignOut} tabIndex={0}>
           Sign Out

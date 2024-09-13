@@ -30,12 +30,13 @@ const Navbar = () => {
                     size={40}
                     onClick={() => setIsOpen((prev) => !prev)}
                   />
-                  <div className="absolute top-16 right-0 w-full h-full bg-[#141414]">
-                    <ul className="flex flex-row justify-center items-center gap-4">
+                  <div className="absolute top-16 left-0">
+                    <ul className="menu rounded-box w-56 flex flex-col justify-center items-center bg-[#141414]">
+                      <InputSearchMovies />
                       <EachUtils
                         of={LIST_NAVBAR}
                         render={(item, index) => (
-                          <li key={index} className="text-xl py-5">
+                          <li key={index} className="text-xl py-3">
                             <a href={item.url}>{item.title}</a>
                           </li>
                         )}
@@ -69,8 +70,11 @@ const Navbar = () => {
               />
             </ul>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-4">
             <InputSearchMovies />
+            <AccountMenu />
+          </div>
+          <div className="flex sm:hidden items-center pr-2">
             <AccountMenu />
           </div>
         </div>
