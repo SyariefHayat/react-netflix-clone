@@ -13,13 +13,7 @@ const app = express();
 const PORT = API_PORT || 3000;
 
 app.use(express.json());
-app.use(
-  cors({
-    origin: "https://react-netflix-clone-sand.vercel.app",
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+app.use(cors());
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 
