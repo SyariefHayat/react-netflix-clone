@@ -16,7 +16,9 @@ const app = express();
 const PORT = API_PORT || 3000;
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+    origin: 'https://react-netflix-clone-sand.vercel.app',
+}));
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
 mongoose.connect(MONGO_URL).catch((error) => {
