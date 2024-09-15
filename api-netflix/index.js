@@ -1,11 +1,12 @@
 require("dotenv").config();
-const express = require("express");
 const cors = require("cors");
-const mongoose = require("mongoose");
-const routes = require("./routes/index.route");
-const swaggerUi = require("swagger-ui-express");
-const path = require("path");
 const YAML = require("yamljs");
+const mongoose = require("mongoose");
+const swaggerUi = require("swagger-ui-express");
+
+const path = require("path");
+const express = require("express");
+const routes = require("./routes/index.route");
 
 const swaggerDocs = YAML.load(path.join(__dirname, "swagger.yaml"));
 
@@ -18,7 +19,6 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocs));
-
 mongoose.connect(MONGO_URL).catch((error) => {
   if (error) {
     console.log("Failed to connect to MongoDB");

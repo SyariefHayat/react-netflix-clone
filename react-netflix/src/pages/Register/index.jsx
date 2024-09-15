@@ -48,7 +48,6 @@ const Register = () => {
         });
 
         if (addUser.status === 201) {
-          toast("User created successfully");
           setTimeout(() => {
             setIsLoading(false);
             setIsRegisterMsg(false);
