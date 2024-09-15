@@ -47,7 +47,9 @@ const Register = () => {
           password,
         });
 
+        console.log(isRegisterMsg)
         if (addUser.status === 201) {
+          console.log("User added successfully");
           setTimeout(() => {
             setIsLoading(false);
             setIsRegisterMsg(false);
