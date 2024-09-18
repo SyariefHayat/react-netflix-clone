@@ -25,7 +25,7 @@ const AccountMenu = () => {
         signOut(auth).then(() => {
           setTokenStorage(null);
           setEmailStorage(null);
-          navigate("/");
+          navigate("/"); 
         });
       }
     } catch (error) {
