@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { useAtom } from "jotai";
 import ReactPlayer from "react-player";
 import { useNavigate } from "react-router-dom";
-import { GoPlay, GoPlusCircle, GoChevronDown } from "react-icons/go";
 import { LuMinusCircle } from "react-icons/lu";
+import { GoPlay, GoPlusCircle, GoChevronDown } from "react-icons/go";
 
 import {
   emailStorageAtom,
@@ -14,16 +14,15 @@ import {
   tokenStorageAtom,
 } from "@/jotai/atoms";
 import Skeleton from "./Skeleton";
+import useFavoriteMovie from "@/hooks/useFavoriteMovie";
 import Notification from "@modules/Element/Notification";
 import { getVideoUrl } from "@/services/tmdb/getVideoUrl";
-import { apiInstanceExpress } from "@/services/express/apiInstance";
 import { checkFavoriteMovies } from "@/services/tmdb/checkFavoriteMovies";
 
 const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
   const [videoUrl, setVideoUrl] = useState(null);
-  const [isSubmit, setIsSubmit] = useState(false);
-  const [notifMessage, setNotifMessage] = useState(null);
   const [movieTypeState, setMovieTypeState] = useState(null);
+  const {notifMessage, isSubmit, handleAddFavoriteMovie, handleDeleteFavoriteMovie} = useFavoriteMovie(data);
 
   const [tokenStorage] = useAtom(tokenStorageAtom);
   const [emailStorage] = useAtom(emailStorageAtom);
@@ -34,68 +33,6 @@ const MovieCard = ({ data, isHover, setIsHover, moviesType }) => {
   const [isFavorited, setIsFavorited] = useAtom(isFavoritedAtom);
 
   const navigate = useNavigate();
-
-  const handleAddFavoriteMovie = async () => {
-    try {
-      setIsSubmit(true);
-
-      if (emailStorage && tokenStorage) {
-        const addMovie = await apiInstanceExpress.post("my-movies", {
-          email: emailStorage,
-          token: tokenStorage,
-          data,
-        });
-
-        if (addMovie.status !== 201)
-          return setNotifMessage("Failed to add movie");
-
-        setNotifMessage(`film ${data.title} berhasil di tambahkan`);
-        setIsFavorited(true);
-
-        setTimeout(() => {
-          setIsSubmit(false);
-          setNotifMessage(null);
-        }, 3000);
-      }
-    } catch (error) {
-      setNotifMessage(error.message);
-
-      setTimeout(() => {
-        setIsSubmit(false);
-        setNotifMessage(null);
-      }, 3000);
-    }
-  };
-
-  const handleDeleteFavoriteMovie = async () => {
-    try {
-      setIsSubmit(true);
-
-      if (emailStorage && tokenStorage) {
-        const deleteMovie = await apiInstanceExpress.delete("my-movies", {
-          data: { email: emailStorage, token: tokenStorage, movie_id: data.id },
-        });
-
-        if (deleteMovie.status !== 204)
-          return setNotifMessage(`film ${data.title} gagal di hapus`);
-
-        setNotifMessage(`film ${data.title} berhasil di hapus`);
-        setIsFavorited(false);
-
-        setTimeout(() => {
-          setIsSubmit(false);
-          setNotifMessage(null);
-        }, 3000);
-      }
-    } catch (error) {
-      setNotifMessage(error.message);
-
-      setTimeout(() => {
-        setIsSubmit(false);
-        setNotifMessage(null);
-      }, 3000);
-    }
-  };
 
   if (isFetching) return <Skeleton />;
 

@@ -112,7 +112,7 @@ const MovieDetail = () => {
         >
           More Detail
         </motion.button>
-        <motion.button
+        {/* <motion.button
           key={`btn-add-${currentIndex}`}
           initial={{ opacity: 0, translateY: 100, filter: "blur(33px)" }}
           animate={{ opacity: 1, translateY: 0, filter: "blur(0)" }}
@@ -120,7 +120,7 @@ const MovieDetail = () => {
           className="bg-stone-600/80 py-2 px-8 rounded-md text-white sm:flex justify-center items-center gap-2 hidden"
         >
           <p>Add to watchlist</p>
-        </motion.button>
+        </motion.button> */}
       </motion.div>
     </AnimatePresence>
   );

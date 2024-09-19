@@ -73,7 +73,8 @@ const Modal = () => {
                 <p className="text-green-400/90">
                   {movieDetail?.runtime} Minutes
                 </p>
-                <p>{movieDetail?.vote_average}</p>
+                <p>{movieDetail?.vote_average ? Math.round(movieDetail.vote_average * 10) / 10
+                : ""}</p>
               </div>
               <p className="w-full">{movieDetail?.overview}</p>
             </div>
