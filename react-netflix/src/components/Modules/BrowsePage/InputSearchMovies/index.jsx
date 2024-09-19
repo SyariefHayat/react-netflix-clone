@@ -34,12 +34,13 @@ const InputSearchMovies = () => {
             ? { duration: 0.3, ease: "easeInOut" }
             : { duration: 1, ease: "easeInOut" }
         }
-        className="relative bg-black z-10 rounded-full overflow-hidden "
+        className="relative bg-white z-10 rounded-full overflow-hidden"
       >
         <GoSearch
-          onClick={() => setIsShown(!isShown)}
-          className={`absolute top-1/2 -translate-y-1/2 left-2 cursor-pointer z-10`}
+          color="black"
           size={24}
+          onClick={() => setIsShown(!isShown)}
+          className={`absolute top-1/2 -translate-y-1/2 left-2 z-10 cursor-pointer`}
         />
         <AnimatePresence>
           {isShown && (
@@ -48,7 +49,7 @@ const InputSearchMovies = () => {
               animate={{ width: "200px", opacity: 1, paddingLeft: "2.5rem" }}
               exit={{ width: 0, opacity: 0 }}
               transition={{ duration: 1, ease: "easeInOut" }}
-              className="bg-black outline-none py-2 "
+              className="bg-white outline-none py-2 placeholder-black text-black"
               placeholder="title, people, genres..."
               onChange={handleChange}
             />

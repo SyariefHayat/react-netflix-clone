@@ -36,7 +36,7 @@ const AccountMenu = () => {
   return (
     <div className="flex dropdown dropdown-hover dropdown-end cursor-pointer">
       <div tabIndex={0}>
-        <div className="w-8 h-8 flex items-center justify-center rounded-full text-slate-950 text-2xl font-medium bg-slate-100">
+        <div className="w-10 h-10 flex items-center justify-center rounded-full text-black text-2xl font-medium bg-white">
           {getInitial(emailStorage)}
         </div>
       </div>
