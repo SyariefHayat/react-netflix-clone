@@ -40,20 +40,20 @@ Netflix Clone is a web application that replicates the core features of Netflix,
    cd netflix-clone
 
 2. Install dependencies for both backend and frontend:
-- **frontend**
+   - **frontend**
    ```bash
    cd react-netflix
    npm install
 
-- **backend**
+   - **backend**
    ```bash
    cd api-netflix
    npm install
 
 3. Set up Firebase for authentication:
-   Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)
-   Enable Email/Password Authentication.
-   Obtain the Firebase configuration object and store it in .env file in the frontend.
+   - **Create a Firebase project at [Firebase Console](https://console.firebase.google.com/)**
+   - **Enable Email/Password Authentication.**
+   - **Obtain the Firebase configuration object and store it in .env file in the frontend.**
 
 ## Environment Variables
 1. Create a .env file in the frontend(react-netflix):
