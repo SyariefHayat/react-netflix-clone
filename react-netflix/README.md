@@ -40,11 +40,13 @@ Netflix Clone is a web application that replicates the core features of Netflix,
    cd netflix-clone
 
 2. Install dependencies for both backend and frontend:
-   - frontend
+- **frontend**
+   ```bash
    cd react-netflix
    npm install
 
-   - backend
+- **backend**
+   ```bash
    cd api-netflix
    npm install
 
