@@ -4,6 +4,7 @@
 ![React](https://img.shields.io/badge/React-18.x-blue)
 ![Node.js](https://img.shields.io/badge/Node.js-16.x-green)
 ![Firebase](https://img.shields.io/badge/Firebase-Auth-orange)
+![Jotai](https://img.shields.io/badge/State%20Management-Jotai-blue)
 
 Netflix Clone is a web application that replicates the core features of Netflix, built with the MERN stack (MongoDB, Express, React, Node.js) and Firebase for user authentication. It allows users to browse and stream movies, manage their profiles, and much more.
 
